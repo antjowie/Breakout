@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+# Manually added
+# ---
+# Visual studio files
+*.filters
+*.user
+
+.vscode
+.vs
+
+/bin
+/bin-int
+c_cpp_properties.json
