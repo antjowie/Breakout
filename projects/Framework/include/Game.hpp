@@ -3,9 +3,8 @@
 class Game
 {
 private:
-
 public:
-    void init();
+    int init();
 
     void handleInput(float elapsedTime);
     void update(float elapsedTime);
