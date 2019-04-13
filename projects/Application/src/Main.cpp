@@ -3,5 +3,6 @@
 int main()
 {
 	Game game;
-	game.init();
+	game.init(1280, 720);
+	game.run();
 }
