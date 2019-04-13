@@ -1,18 +1,11 @@
 #pragma once
 
-struct GLFWwindow;
-
 class Game
 {
-private:
-	GLFWwindow *m_window;
-
-	void handleInput(float elapsedTime);
-	void update(float elapsedTime);
-	void render();
-
 public:
-	int init(int width, int height);
+	virtual bool init() = 0;
 
-	void run();
+	virtual void handleInput(float elapsedTime) = 0;
+	virtual void update(float elapsedTime) = 0;
+	virtual void render() = 0;
 };

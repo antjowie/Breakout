@@ -76,10 +76,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\extlibs\GLAD\src\glad.c" />
-    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Application.hpp" />
     <ClInclude Include="include\Game.hpp" />
+    <ClInclude Include="include\Window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

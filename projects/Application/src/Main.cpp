@@ -1,8 +1,11 @@
-#include "Game.hpp"
+#include "Application.hpp"
+#include "BreakoutGame.hpp"
 
 int main()
 {
-	Game game;
-	game.init(1280, 720);
-	game.run();
+	Application app;
+	app.init(1280, 720, std::make_unique<BreakoutGame>());
+	app.run();
+
+	return 0;
 }
