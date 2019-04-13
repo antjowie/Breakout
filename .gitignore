@@ -4,9 +4,9 @@
 *.filters
 *.user
 
-.vscode
-.vs
+.vscode/
+.vs/
+.cquery
 
 /bin
 /bin-int
-c_cpp_properties.json
