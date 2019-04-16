@@ -1,15 +1,20 @@
 #include "BreakoutGame.hpp"
+#include "InputHandler.hpp"
 
-bool BreakoutGame::init()
+#include <GLFW/glfw3.h>
+
+bool BreakoutGame::onCreate()
 {
-    return true;
+	return true;
 }
 
-void BreakoutGame::handleInput(float elapsedTime)
+void BreakoutGame::handleInput(double elapsedTime)
 {
+	if (m_inputHandler->isKeyPressed(GLFW_KEY_ESCAPE))
+		glfwSetWindowShouldClose(m_window, true);
 }
 
-void BreakoutGame::update(float elapsedTime)
+void BreakoutGame::update(double elapsedTime)
 {
 }
 

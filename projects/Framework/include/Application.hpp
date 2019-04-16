@@ -1,15 +1,22 @@
 #pragma once
-#include <memory>
-#include "Window.hpp"
+
 #include "Game.hpp"
+#include "InputHandler.hpp"
+
+#include <memory>
+
+struct GLFWwindow;
 
 class Application
 {
 private:
-    std::unique_ptr<Window> m_window;
+    GLFWwindow *m_window;
     std::unique_ptr<Game> m_game;
+    std::unique_ptr<InputHandler> m_inputHandler;
 
 public:
-    int init(int width, int height, std::unique_ptr<Game> &&game);
+    ~Application();
+
+    bool init(int width, int height, std::unique_ptr<Game> &&game);
     void run();
 };

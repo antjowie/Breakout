@@ -4,9 +4,9 @@
 class BreakoutGame : public Game
 {
 public:
-    virtual bool init() override final;
+	virtual bool onCreate() override final;
 
-    virtual void handleInput(float elapsedTime) override final;
-    virtual void update(float elapsedTime) override final;
-    virtual void render() override final;
+	virtual void handleInput(double elapsedTime) override final;
+	virtual void update(double elapsedTime) override final;
+	virtual void render() override final;
 };
