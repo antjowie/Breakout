@@ -2,8 +2,7 @@
 
 int main() 
 {	
-	Game game;
-	game.init(1280, 720);
+	Game game(1280,720);
 	game.run();
 
 	return 0;

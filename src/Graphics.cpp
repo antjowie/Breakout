@@ -1,4 +1,4 @@
-#include "Graphics.h"
+#include "Graphics.hpp"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -10,12 +10,17 @@ void framebufferSizeCallback(GLFWwindow *window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
+Graphics::Graphics() :
+	m_window(nullptr)
+{
+}
+
 Graphics::~Graphics()
 {
 	glfwTerminate();
 }
 
-bool Graphics::init(int width, int height)
+GLFWwindow *Graphics::createWindow(int width, int height)
 {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -26,7 +31,7 @@ bool Graphics::init(int width, int height)
 	if (m_window == nullptr)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
-		return false;
+		return nullptr;
 	}
 
 	glfwSetFramebufferSizeCallback(m_window, framebufferSizeCallback);
@@ -35,10 +40,10 @@ bool Graphics::init(int width, int height)
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
-		return false;
+		return nullptr;
 	}
 
 	glViewport(0, 0, width, height);
 
-	return true;
+	return m_window;
 }

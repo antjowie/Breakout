@@ -7,7 +7,9 @@ private:
     GLFWwindow *m_window;
 
 public:
-    InputHandler(GLFWwindow *window);
+    InputHandler();
+	
+	void setWindowHandle(GLFWwindow &window);
 
     bool isKeyPressed(int key);
 };

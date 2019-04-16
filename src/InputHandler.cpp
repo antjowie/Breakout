@@ -1,8 +1,14 @@
 #include "InputHandler.hpp"
 #include <GLFW/glfw3.h>
 
-InputHandler::InputHandler(GLFWwindow *window) : m_window(window)
+InputHandler::InputHandler() 
+	: m_window(nullptr)
 {
+}
+
+void InputHandler::setWindowHandle(GLFWwindow & window)
+{
+	m_window = &window;
 }
 
 bool InputHandler::isKeyPressed(int key)
