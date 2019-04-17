@@ -20,14 +20,14 @@ Graphics::~Graphics()
 	glfwTerminate();
 }
 
-GLFWwindow *Graphics::createWindow(int width, int height)
+GLFWwindow *Graphics::createWindow(int width, int height, const char* title)
 {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	m_window = glfwCreateWindow(width, height, "Fortmine", nullptr, nullptr);
+	m_window = glfwCreateWindow(width, height, title, nullptr, nullptr);
 	if (m_window == nullptr)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;

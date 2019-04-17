@@ -10,5 +10,5 @@ public:
 	Graphics();
 	~Graphics();
 
-	GLFWwindow* createWindow(int width, int height);
+	GLFWwindow* createWindow(int width, int height, const char* title = "GLFW window");
 };
