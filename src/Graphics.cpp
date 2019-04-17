@@ -1,4 +1,4 @@
-#include "Graphics.hpp"
+#include "Graphics.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -27,7 +27,7 @@ GLFWwindow *Graphics::createWindow(int width, int height)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	m_window = glfwCreateWindow(width, height, "Breakout", nullptr, nullptr);
+	m_window = glfwCreateWindow(width, height, "Fortmine", nullptr, nullptr);
 	if (m_window == nullptr)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
@@ -44,6 +44,7 @@ GLFWwindow *Graphics::createWindow(int width, int height)
 	}
 
 	glViewport(0, 0, width, height);
+	std::cout << "Successfully created GLFW window\n";
 
 	return m_window;
 }
