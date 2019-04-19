@@ -7,8 +7,8 @@ private:
 	GLFWwindow *m_window;
 
 public:
-	Graphics();
+	Graphics(int width, int height, const char* title = "GLFW window");
 	~Graphics();
 
-	GLFWwindow* createWindow(int width, int height, const char* title = "GLFW window");
+	GLFWwindow * windowHandle() const; 
 };

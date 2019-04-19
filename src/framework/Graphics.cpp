@@ -10,16 +10,6 @@ void framebufferSizeCallback(GLFWwindow *window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-Graphics::Graphics() :
-	m_window(nullptr)
-{
-}
-
-Graphics::~Graphics()
-{
-	glfwTerminate();
-}
-
 void APIENTRY glDebugOutput(GLenum source,
 	GLenum type,
 	GLuint id,
@@ -67,7 +57,9 @@ void APIENTRY glDebugOutput(GLenum source,
 	std::cout << std::endl;
 }
 
-GLFWwindow *Graphics::createWindow(int width, int height, const char* title)
+
+Graphics::Graphics(int width, int height, const char* title) :
+	m_window(nullptr)
 {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -83,7 +75,7 @@ GLFWwindow *Graphics::createWindow(int width, int height, const char* title)
 	if (m_window == nullptr)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
-		return nullptr;
+		throw "Failed to create GLFW window";
 	}
 
 	glfwSetFramebufferSizeCallback(m_window, framebufferSizeCallback);
@@ -92,7 +84,7 @@ GLFWwindow *Graphics::createWindow(int width, int height, const char* title)
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
-		return nullptr;
+		throw "Failed to initialize GLAD";
 	}
 
 	glViewport(0, 0, width, height);
@@ -110,9 +102,15 @@ GLFWwindow *Graphics::createWindow(int width, int height, const char* title)
 	}
 	else
 		std::cout << "!!!Unsuccessfully created debug context\n";
-
 #endif // DEBUG
+}
 
+Graphics::~Graphics()
+{
+	glfwTerminate();
+}
 
+GLFWwindow * Graphics::windowHandle() const
+{
 	return m_window;
 }
