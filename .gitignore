@@ -1,12 +1,1 @@
-# Manually added
-# ---
-# Visual studio files
-*.filters
-*.user
-
-.vscode/
-.vs/
-.cquery
-
-/bin
-/bin-int
+/build
